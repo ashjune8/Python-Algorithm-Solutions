@@ -1,0 +1,33 @@
+def lengthOfLongestSubstring(s):
+    x = ""
+    j = 0
+    y = ""
+
+    i = 0
+    if s == "":
+        return 0
+    elif len(set(s)) == 1:
+        return 1
+    else:
+
+        while j < len(s):
+            if (s[i] in x) and (x != ""):
+                x = ""
+                j += 1
+                i = j
+
+
+            x = x + s[i]
+
+            i += 1
+
+            if x != "" and (len(y)<len(x)):
+                y = x
+            if i == len(s):
+                break
+
+
+        return len(y)
+
+
+lengthOfLongestSubstring(s="au")

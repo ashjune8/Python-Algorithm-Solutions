@@ -1,0 +1,26 @@
+class Node:
+    def __init__(self, val=None):
+        self.left = None
+        self.right = None
+        self.val =  val 
+    
+def levelOrderPrint(tree):
+    currentcount = 1
+    nextcount = 0
+    nodes = collections.deque(tree)
+    while length(node)>0:
+        currentnode = nodes.popleft()
+        currentcount -= 1
+        print currentnode.val,
+    if currentnode.left:
+        nextcount+=1
+        nodes.append(currentNode.left)
+    if currentnode.right:
+        nextcount+=1
+        nodes.append(currentnode.right)
+    if currentcount == 0:
+         print '\n',
+        currentcount,nextcount = nextcount.currentcount
+        
+        
+  
