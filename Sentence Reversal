@@ -1,0 +1,7 @@
+def rev_word(s):
+    s = s.split()
+    news = ''
+    for i in range((len(s)-1),-1,-1):
+        news = news + ' ' + s[i]
+        
+    return news.strip()

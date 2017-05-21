@@ -1,0 +1,12 @@
+def isPalindrome(self, x):
+        if x < 0:
+            return False
+        s = str(x)
+        if int(s[::-1]) > 2147483648:
+            return False
+        else:
+            if s[::-1] == s:
+                return True
+            else:
+                return False
+        

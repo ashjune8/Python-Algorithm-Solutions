@@ -1,0 +1,12 @@
+def bubblesort(arr):
+    size = len(arr)
+    
+    for x in range(size-1,0,-1):
+        for y in range(0,x):
+            if arr[y] > arr[y+1]:
+                temp = arr[y]
+                arr[y] = arr[y+1]
+                arr[y+1] = temp
+                
+    return arr
+                

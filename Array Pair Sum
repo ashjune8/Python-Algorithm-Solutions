@@ -1,0 +1,18 @@
+def pair_sum(arr, k):
+    pair = []
+    
+    for i in range(0, len(arr)):
+        for j in range(i + 1, len(arr)):
+            if (arr[i] + arr[j]) == k:
+                if (arr[i], arr[j]) in pair:
+                    continue
+                elif (arr[j],arr[i]) in pair:
+                    continue
+                else:
+
+                    pair.append((arr[i], arr[j]))
+            else:
+                continue
+
+    return len(pair)
+

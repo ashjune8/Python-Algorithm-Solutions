@@ -1,0 +1,15 @@
+def balance_check(s):
+    
+    lst = ["[","]","(",")","{","}"]
+    dic = {}
+    for i in range(0,len(lst)):
+        dic[lst[i]] = 0
+    for i in range(0,len(s)):
+        if s[i] in lst:
+            dic[s[i]] += 1
+    if dic["["] == dic["]"] and dic["("] == dic[")"] and dic["{"] == dic["}"]:
+       
+        return True
+    else:
+        
+        return False

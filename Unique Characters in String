@@ -1,0 +1,10 @@
+def uni_char(s):
+    if s == '':
+        return True
+    l = []
+    for i in range(len(s)):
+        if s[i] not in l:
+            l.append(s[i])
+        else:
+            return False
+    return True

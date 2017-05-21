@@ -1,0 +1,15 @@
+def selectionsort(arr):
+    
+    size = len(arr)
+    
+    for x in range(size-1,0,-1):
+        maxitem = None
+        for y in range(0,x):
+            maxitem = max(arr[y],arr[y+1])
+            maxlocation = arr.index(maxitem)
+            
+        temp = arr[x]
+        arr[x] = maxitem
+        arr[maxlocation] = temp
+        
+    return arr

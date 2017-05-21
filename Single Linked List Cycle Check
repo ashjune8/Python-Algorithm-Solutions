@@ -1,0 +1,12 @@
+def cycle_check(node):
+    i = 1
+    lst = []
+    curr = node
+    while i>0:
+        if curr.nextnode == None:
+            return False
+        elif curr.value not in lst:
+            lst.append(curr.value)
+            curr = curr.nextnode
+        else:
+            return True

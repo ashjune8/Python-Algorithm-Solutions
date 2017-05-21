@@ -1,0 +1,9 @@
+def nth_to_last_node(n, head):
+
+    curr = head
+    lst = []
+    while curr.nextnode != None:
+        lst.append(curr)
+        curr = curr.nextnode
+    lst.append(curr)
+    return lst[len(lst)-n]
