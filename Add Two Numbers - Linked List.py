@@ -32,16 +32,13 @@ class Solution(object):
             i += 1
         i = 0
         sum = first + second
-
+        x = 0
         string = str(sum)
-        l3 = ListNode
-        for i in range(len(string) - 1, 0, -1):
-            if i == 0:
-                l3 = ListNode(int(string[i]))
-                l3.next = None
-            else:
-                l3 = ListNode(int(string[i]))
-                l3.next = ListNode(int(string[i - 1]))
-                l3 = l3.next
+        revstring = string[::-1]
+        l3 = []
+        l3.append(ListNode(int(revstring[0])))
+        for i in range(1, len(revstring)):
+            l3.append(ListNode(int(revstring[i])))
+            l3[i - 1].next = l3[i]
 
-        return l3
+        return l3[0]
