@@ -1,36 +1,30 @@
 
 def lengthOfLongestSubstring(s):
 
-  visited = []
-  position = 0
-  max = ''
-  current = ''
+    stringset = set()
+    maxlen = 0
+    i =0
+    j = 0
+    while(i<len(s) and j<len(s)):
+        if (s[j] not in stringset):
+            stringset.add(s[j])
+            maxlen = max(maxlen,j+1-i)
+            j = j+1
 
-  if s == '':
-      return 0
-  while position < len(s):
-      for i in range(position,len(s)):
-          if s[i] not in visited:
-              visited.append(s[i])
-              current = current + s[i]
-              if len(current) > len(max):
-                  max = current
+        else:
+            tempchar = s[j]
+            s = s[i:]
+            temp = s.index(tempchar)
+            j = temp + 1
+            i = temp + 1
+            stringset.clear()
 
-          else:
-              current = ''
-              break
-
-
-
-      visited = []
-      current = ''
-      position += 1
-
-
-  return len(max)
+    return maxlen
 
 
 
 
-print lengthOfLongestSubstring("pwwkew")
+
+
+print lengthOfLongestSubstring("ohomm")
 

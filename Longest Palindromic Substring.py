@@ -4,6 +4,7 @@ def longestPalindrome(s):
     palindrome = ''
     current = ''
     maxpalindrome = ''
+    
     while position < len(s):
 
         for i in range(position,len(s)):
