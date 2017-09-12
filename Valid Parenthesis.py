@@ -26,11 +26,13 @@ def isValid(s):
             if temp == '{' and s[i] == '}':
                 i += 1
                 continue
+            else:
+                return False
         else:
             return False
     return stack == []
 
-print isValid("([)]")
+print isValid("([[)")
 
 
 
