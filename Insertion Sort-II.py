@@ -1,8 +1,10 @@
 def insertionSort(ar,temp,end):
-
-    for i in range(end-1, -1, -1):
+    switch = 0
+    for i in range(end - 1, -1, -1):
         if ar[i] > temp:
+            switch = ar[i + 1]
             ar[i + 1] = ar[i]
+            ar[i] = switch
 
         else:
             ar[i + 1] = temp
