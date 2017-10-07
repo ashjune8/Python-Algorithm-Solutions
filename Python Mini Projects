@@ -70,7 +70,9 @@ def player_choice(board):
 def replay():
     
     return raw_input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
-    
+
+#Main Program
+
 print('Welcome to Tic Tac Toe!')
 
 while True:
@@ -123,7 +125,7 @@ while True:
     if not replay():
         break
         
-    
+#--------------------------------------------------------------------------------------------------------#
     
 #BlackJack Game
 # Used for card shuffle
