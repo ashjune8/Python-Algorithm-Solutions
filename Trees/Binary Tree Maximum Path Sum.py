@@ -17,8 +17,18 @@ def maxPathSum(root):
         if root.left == None and root.right == None:
             return root.val
         elif root.right == None:
-            return findsum(root.left)
+            return root.val + findsum(root.left)
         elif root.left == None:
-            return findsum(root.right)
+            return root.val + findsum(root.right)
         else:
+            return root.val + findsum(root.left) + findsum(root.right)
 
+    return findsum(root)
+
+a = TreeNode(1)
+b = TreeNode(2)
+c = TreeNode(3)
+a.left = b
+a.right = c
+
+print maxPathSum(a)

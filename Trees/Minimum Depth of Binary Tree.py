@@ -18,7 +18,7 @@ def minDepth(root):
 
 
     def findmin(root):
-        if(root.left == None and root.right) == None:
+        if(root.left == None and root.right == None):
             return 1
         elif root.left == None:
             return 1 + findmin(root.right)

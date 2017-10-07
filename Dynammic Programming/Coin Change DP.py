@@ -16,4 +16,4 @@ def coinChange(coins, amount):
         return -1
     return Min[amount]
 
-print coinChange([2],3)
+print coinChange([1,2,3],3)
