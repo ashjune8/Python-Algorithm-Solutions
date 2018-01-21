@@ -1,7 +1,9 @@
+
 def arrayPairSum(nums):
     nums.sort()
     length = len(nums)
     newlst = []
+
     if length == 2:
         return nums[0]
     else:
