@@ -1,3 +1,5 @@
+
+# Use stack1 to insert items and when you have to pop the pop all items from stack1 to stack2, pop top item from stack2 which is pop of queue and then pop rest of items from stack2 and insert back to stack1 so that order of queue is maintained
 class Queue2Stacks(object):
     
     
