@@ -12,3 +12,5 @@ def insertion_sort(arr):
             position = position - 1
 
         arr[position] = currentvalue
+
+
