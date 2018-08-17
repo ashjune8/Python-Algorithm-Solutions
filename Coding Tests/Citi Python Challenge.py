@@ -6,7 +6,7 @@ import feedparser
 
 feed = feedparser.parse('https://news.google.com/news/rss/?hl=en&amp;ned=us&amp;gl=US')
 
-print feed.keys() #feed is array of dictionaries
+print feed.keys() #Feed is array of dictionaries
 
 print feed['entries'][0].keys() #feed['entries'] is a list of dictionaries
 
