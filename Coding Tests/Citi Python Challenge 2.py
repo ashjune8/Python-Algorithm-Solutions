@@ -1,29 +1,28 @@
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+import datetime
 
-import feedparser
 
-#https://wiki.python.org/moin/RssLibraries
+feed = requests.get('https://itunes.apple.com/us/rss/customerreviews/page=1/id=301724680/xml')
+soup = BeautifulSoup(feed.text)
+entry = soup.find_all('entry')
 
-feed = feedparser.parse('https://www.nasa.gov/rss/dyn/breaking_news.rss')
+reviews = []
 
-print feed.keys() #feed is array of dictionaries
+for i in entry:
+    if i.find('content', type="text"):
+        reviews.append([i.title.string,datetime.datetime.strptime(i.updated.string[:10] , '%Y-%m-%d'),i.content.string])
 
-print feed['entries'][0].keys() #feed['entries'] is a list of dictionaries
-
-print feed['feed'].keys()
-entry = []
-
-data = pd.DataFrame(columns=['title','title_detail','summary','link'])
+data = pd.DataFrame(columns=['Comment Title','Comment Date','Comment'])
 
 j =0
-for i in feed['entries']:
-    data.loc[j] = [i.title, i.title_detail, i.summary, i.link]
-    j+=1
+for i in reviews:
+    data.loc[j] = [i[0], i[1], i[2]]
+    j += 1
 
-print data.head()
-
-
-
+#data = data[data['Comment Date'] < '2018-08-13'] #If we want one week earlier data
+data.to_csv('result',encoding='utf-8', index=False)
 
 
 

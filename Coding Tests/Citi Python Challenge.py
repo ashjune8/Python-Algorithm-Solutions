@@ -2,9 +2,11 @@ import pandas as pd
 
 import feedparser
 
-#https://wiki.python.org/moin/RssLibraries
+import requests
 
-feed = feedparser.parse('https://news.google.com/news/rss/?hl=en&amp;ned=us&amp;gl=US')
+
+
+feed = requests.get('https://itunes.apple.com/us/rss/customerreviews/page=1/id=301724680/xml')
 
 print feed.keys() #Feed is array of dictionaries
 
