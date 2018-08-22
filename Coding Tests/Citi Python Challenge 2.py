@@ -1,18 +1,22 @@
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
+
 import datetime
+import xml.etree.ElementTree as ET
 
 
 feed = requests.get('https://itunes.apple.com/us/rss/customerreviews/page=1/id=301724680/xml')
-soup = BeautifulSoup(feed.text)
-entry = soup.find_all('entry')
 
+root = ET.fromstring(feed.content)
 reviews = []
 
-for i in entry:
-    if i.find('content', type="text"):
-        reviews.append([i.title.string,datetime.datetime.strptime(i.updated.string[:10] , '%Y-%m-%d'),i.content.string])
+for i in root:
+    if i.tag == '{http://www.w3.org/2005/Atom}entry' and i.find('{http://www.w3.org/2005/Atom}content').attrib.get('type') == 'text':
+
+        reviews.append([i.find('{http://www.w3.org/2005/Atom}title').text,datetime.datetime.strptime(i.find('{http://www.w3.org/2005/Atom}updated').text[:10] , '%Y-%m-%d'), i.find('{http://www.w3.org/2005/Atom}content').text])
+
+
+
 
 data = pd.DataFrame(columns=['Comment Title','Comment Date','Comment'])
 
