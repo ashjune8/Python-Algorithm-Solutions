@@ -5,4 +5,4 @@ def solution(A):
             ans = A[i]
     return ans
 
-print solution([])
+print solution([-1,2])

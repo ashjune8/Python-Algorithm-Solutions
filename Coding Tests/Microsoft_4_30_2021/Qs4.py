@@ -35,9 +35,11 @@ def solution(T):
 a = Tree(1)
 b = Tree(2)
 c = Tree(3)
-d = Tree(2)
+d = Tree(0)
+e = Tree(5)
 a.l = b
 b.l = c
+b.r = e
 a.r = d
 
 print solution(a)

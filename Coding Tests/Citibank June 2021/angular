@@ -1,0 +1,81 @@
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'like-dislike',
+  template: `
+      <div>
+        <button class ="like-button" [ngClass]="{'liked': likedClass}"  (click) = "onClickLike()"> Like | <span class="likes-counter">{{like}}</span> </button>
+        <button class="dislike-button" [ngClass]="{'disliked': dislikedClass}" (click) = "onClickDislike()" > Dislike | <span class="dislikes-counter">{{dislike}}</span> </button>
+      </div>
+  `,
+  styles: [`
+    .like-button, .dislike-button {
+        font-size: 1rem;
+        padding: 5px 10px;
+        color:   #585858;
+    }
+
+    .liked, .disliked {
+        font-weight: bold;
+        color: #1565c0;
+    }
+  `]
+})
+
+export class LikeDislikeComponent {
+
+    public like = 100;
+    public dislike = 25;
+    public likedClass: boolean;
+    public dislikedClass: boolean;
+    
+
+
+    onClickLike(){
+
+        if(this.like === 101){
+            this.like = 100;
+            this.likedClass = false;
+            
+        }else if(this.dislike === 26){ 
+            this.like = 101;
+            this.dislike = 25;
+            this.likedClass = true;
+
+        }else{
+            this.like = 101;
+            this.likedClass = true;
+        }
+
+        
+        console.log('like counter', this.like);
+
+    }
+
+    onClickDislike(){
+
+        if(this.dislike === 26){
+            this.dislike = 25
+            this.dislikedClass = false;
+        }else if(this.like === 101){
+            this.like = 100;
+            this.dislike = 26;
+            this.dislikedClass = true;
+        }else{
+            this.dislike = 26;
+            this.dislikedClass = true;
+        }
+
+        
+        console.log('like counter', this.dislike);
+
+    }
+
+
+
+
+
+
+
+}
