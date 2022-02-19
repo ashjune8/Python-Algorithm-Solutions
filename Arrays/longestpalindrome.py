@@ -16,4 +16,4 @@ def longestPalindrome(A):
 
 
 
-print longestPalindrome('aabbaaaa')
+print longestPalindrome('cbbd')
